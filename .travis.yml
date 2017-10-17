@@ -3,7 +3,7 @@ rvm:
 - 2.4.2
 script:
  - rubocop
-before_install: gem install rubocop -v 0.50.0
+install: gem install rubocop -v 0.50.0
 notifications:
   irc:
     channels:
