@@ -2,11 +2,11 @@ language: ruby
 rvm:
 - 2.4.2
 script:
- - bundle exec rubocop
+ - rubocop
+before_install: gem install rubocop -v 1.13
 notifications:
   irc:
     channels:
       - "irc.chew.pro#Chewbotcca"
     template:
       - "Build #%{build_number}: %{message} Time Elapsed: %{elapsed_time}. %{build_url}"
-      - "[\u00032%{repository_name}\u0003] \u00037%{author}\u0003 \u00033%{commit} \u0003(\u00033%{branch}\u0003) - \u0002%{commit_message}"
