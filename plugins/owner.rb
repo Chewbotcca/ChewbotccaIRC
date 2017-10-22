@@ -49,7 +49,9 @@ class Owner
 
   def join(m, join)
     if m.user.host == CONFIG['ownerhost']
-      CONFIG['channels'] = "#{CONFIG['channels']},#{join}"
+      channels = CONFIG['channels'].split(',')
+      channels += [join]
+      CONFIG['channels'] = channels.join(',')
       File.open('config.yaml', 'w') { |f| f.write CONFIG.to_yaml }
       Channel(join).join
       m.reply 'Joined the channel successfully!'
