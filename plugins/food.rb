@@ -54,7 +54,7 @@ class Food
     flavour = ['a tasty', 'a delicious', 'an awesome', 'an excellent', 'a beautifully-made']
     type = %w[roll wrap pita sandwich bun]
     method = %w[hands gives makes passes]
-    joey = ['tomatoes', 'lettuce', 'pickles', 'cucumbers', 'red onions', 'jalapenos']
+    joey = ['tomatoes', 'lettuce', 'pickles', 'cucumbers', 'red onions', 'jalapenos', 'banana peppers', 'spinach', 'avocado', 'sprouts']
     sauce = ['sweet onion sauce', 'honey mustard sauce', 'mayo', 'sweet chili sauce', 'italian sauce', 'ranch dressing', 'barbecue sauce']
     andmeat = [" and #{meat.sample}", '']
     templates = [" and #{sauce.sample}!", ", #{joey.sample}, and #{sauce.sample}!", ", #{joey.sample}, #{joey.sample}, and #{sauce.sample}!"]
