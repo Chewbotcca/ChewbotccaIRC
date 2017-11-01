@@ -16,11 +16,11 @@ class Minecraft
     else
       friendcount = 1
       amount = friends.length
-      while friendcount-1 < amount
-        friendlist[friendcount-1] = friends[friendcount]
+      while friendcount - 1 < amount
+        friendlist[friendcount - 1] = friends[friendcount]
         friendcount += 1
         if friendlist.length > 300
-          overload = "..and #{amount-friendcount} more."
+          overload = "..and #{amount - friendcount} more."
           amount = friendcount
         end
       end
