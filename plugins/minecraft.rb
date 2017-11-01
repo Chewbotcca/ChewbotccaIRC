@@ -11,7 +11,7 @@ class Minecraft
     name = name.delete(' ')
     uuid = JSON.parse(RestClient.get("https://use.gameapis.net/mc/player/profile/#{name}"))['uuid_formatted']
     friends = JSON.parse(RestClient.get("https://api.namemc.com/profile/#{uuid}/friends"))
-    if friends.length < 0
+    if friends.empty?
       m.reply "User #{name} doesn't have any friends on namemc! :("
     else
       friendcount = 1
