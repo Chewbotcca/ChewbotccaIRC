@@ -5,7 +5,7 @@ class Minecraft
   match /server (.+)/, method: :checkserver
   match /namemc (.+)/, method: :namemcsearch
   match /mcstatus/, method: :mcstatus
-  match /namemcf/, method: :namemcfriends
+  match /namemcf (.+)/, method: :namemcfriends
 
   def namemcfriends(m, name)
     name = name.delete(' ')
