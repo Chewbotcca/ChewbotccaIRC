@@ -14,17 +14,18 @@ class Minecraft
     if friends.empty?
       m.reply "User #{name} doesn't have any friends on namemc! :("
     else
-      friendcount = 1
+      friendcount = 0
       amount = friends.length
-      while friendcount - 1 < amount
-        friendlist[friendcount - 1] = friends[friendcount]
+      friendlist = []
+      while friendcount < amount
+        friendlist[friendcount] = friends[friendcount]['name']
         friendcount += 1
-        if friendlist.length > 300
+        if friendlist.join(', ').length > 300
           overload = "..and #{amount - friendcount} more."
           amount = friendcount
         end
       end
-      m.reply "List of #{name}'s namemc friends: #{friendlist.join(', ')}.#{overload}'"
+      m.reply "List of #{name}'s namemc friends: #{friendlist.join(', ')}.#{overload}"
     end
   end
 
