@@ -7,7 +7,7 @@ class Minecraft
   match /mcstatus/, method: :mcstatus
   match /namemcf/, method: :namemcfriends
 
-  def namemcf(m, name)
+  def namemcfriends(m, name)
     name = name.delete(' ')
     uuid = JSON.parse(RestClient.get("https://use.gameapis.net/mc/player/profile/#{name}"))['uuid_formatted']
     friends = JSON.parse(RestClient.get("https://api.namemc.com/profile/#{uuid}/friends"))
