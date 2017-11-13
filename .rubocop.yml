@@ -1,5 +1,5 @@
 Metrics/LineLength:
-  Max: 356
+  Max: 500
 
 Security/Eval:
   Enabled: false
