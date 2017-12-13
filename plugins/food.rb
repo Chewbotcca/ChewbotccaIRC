@@ -63,7 +63,7 @@ class Food
       'You have a reputation for being straightforward and honest.',
       'Learn a new language and get a new soul.',
       'A dubious friend may be an enemy in camouflage.',
-      'A tall dark stranger will soon enter our life.',
+      'A tall dark stranger will soon enter your life.',
       "Keep staring. I'll do a trick."
     ]
     m.reply "#{m.user} opens a fortune cookie, it reads: #{fortunes.sample}"
