@@ -5,7 +5,7 @@ class Replace
   match /(.+)/, method: :replace, prefix: /S\//
   
   def replace(m, message)
-    return if m.params[1][0..1] != 's/' || m.params[1][0..1] != 'S/'
+    return if m.params[1][0..1] != 's/'|| m.params[1][0..1] != 'S/'
     channel = m.channel.to_s[1..m.channel.to_s.length]
     filename = "data/logs/#{channel}.yaml"
     unless File.exist?(filename)
