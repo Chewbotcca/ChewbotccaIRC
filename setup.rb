@@ -138,7 +138,7 @@ class Setup
     puts '[1] - host - Match according to hostname. Not recommended for web-client users'
     puts '[2] - username - Match according to username. Recommended for IRCCloud users! Not recommeneded for normal users.'
     puts '[3] - nickname - Match according to nickname. Not recommeneded as people can literally change their nick if it\'t not taken'
-    puts '[4] - userhost - Use options 1 and 2, match according to host nad username.'
+    puts '[4] - userhost - Use options 1 and 2, match according to host and username.'
     puts '[5] - all - Use options 1, 2, and 3, match according to all 3 options.'
     puts '[6] - Main Menu'
     input = gets.chomp
