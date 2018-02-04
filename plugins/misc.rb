@@ -34,5 +34,4 @@ class Misc
   def yoyoyo(m)
     m.reply "yo yo yo whats up its everyone's favorite bot here!"
   end
-
 end
