@@ -8,7 +8,7 @@ class Misc
   match /qrcode (.+)/, method: :execute
   match /8ball/, method: :eball
   match /yoyoyo/, method: :yoyoyo
-  
+
   def eball(m)
     goodresponse = Format(:italic, Format(:bold, Format(:green, ['As I see it, yes', 'It is certain', 'It is decidedly so', 'Most likely', 'Outlook good', 'Signs point to yes', 'One would be wise to think so', 'Naturally', 'Without a doubt', 'Yes', 'You may rely on it', 'You can count on it'].sample.to_s)))
     neutraulresponse = Format(:italic, Format(:bold, ['Better not tell you now!', 'Ask again later.', 'Cannot predict now', 'Cooldown enabled! Please try again.', 'Concentrate and ask again.', 'Rhetorical questions can be answered in solo', 'Maybe...'].sample.to_s))
@@ -30,7 +30,7 @@ class Misc
     args = args.split(',')
     m.reply args.sample
   end
-  
+
   def yoyoyo(m)
     m.reply "yo yo yo whats up its everyone's favorite bot here!"
   end
