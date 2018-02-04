@@ -5,6 +5,13 @@ class Bitcoin
   match /litecoin/, method: :litecoin
   match /zetacoin/, method: :zetacoin
   match /dogecoin/, method: :dogecoin
+  match /dash/, method: :dash
+  match /darkcoin/, method: :dash
+
+  def dash(m)
+    grabthatsweetapi = JSON.parse(RestClient.get('https://api.coinmarketcap.com/v1/ticker/dash/'))[0]
+    m.reply "Dash/DarkCoin Conversions: USD: $#{grabthatsweetapi['price_usd']}"
+  end
 
   def dogecoin(m)
     grabthatsweetapi = JSON.parse(RestClient.get('https://api.coinmarketcap.com/v1/ticker/dogecoin/'))[0]

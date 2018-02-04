@@ -5,19 +5,69 @@ class Owner
   match /part (.+)/, method: :part
   match /eval (.+)/, method: :execute
   match /die/, method: :die
+  match /api (.+) (.+)/, method: :api
+  match /uperms/, method: :perms
+  match /config (.+) (.+)/, method: :config
+  match /permissions (.+) (.+) (.+)/, method: :permissions
+
+  def config(m, option, setting)
+    return unless authenticate(m) && checkperm(m, m.user.name, 'changeconfig')
+    CONFIG[option] = setting
+    File.open('config.yaml', 'w') { |f| f.write CONFIG.to_yaml }
+    m.reply "#{option} successfully set to: `#{setting}`!"
+  end
+
+  def permissions(m, nick, perm, setting)
+    return unless authenticate(m) && checkperm(m, m.user.name, 'changepermissions')
+    file = "data/staff/#{nick}.yaml"
+    m.reply "That staff member doesn't exist!" unless File.exist?(file)
+    m.reply 'Invalid permission!' unless %w[restart fullchannelperms botchans eval die changeconfig changepermissions].include? perm
+    data = YAML.load_file(file)
+    setting = true?(setting)
+    data[perm] = setting
+    File.open(file, 'w') { |f| f.write data.to_yaml }
+    m.reply "Permission `#{perm}` successfully set to `#{setting}` for Staff member #{nick}!"
+  end
+
+  def true?(obj)
+    obj.to_s == 'true'
+  end
+
+  def perms(m)
+    stafffile = "data/staff/#{m.user.name}.yaml"
+    m.reply "You aren't a staff member! You have no perms!" unless File.exist?(stafffile)
+    staffdata = YAML.load_file(stafffile)
+    perms = []
+    perms += ['restart'] if staffdata['restart'] == true
+    perms += ['fullchannelperms'] if staffdata['fullchannelperms'] == true
+    perms += ['botchans'] if staffdata['botchans'] == true
+    perms += ['eval'] if staffdata['eval'] == true
+    perms += ['die'] if staffdata['die'] == true
+    perms += ['changeconfig'] if staffdata['changeconfig'] == true
+    perms += ['changepermissions'] if staffdata['changepermissions'] == true
+    m.reply "Your perms are: #{perms.join(', ')}"
+  end
+
+  def api(m, service, key)
+    return unless authenticate(m) && checkperm(m, m.user.name, 'changeconfig')
+    m.reply 'Invalid API service!' unless %w[wordnik google cleverbot spotifyclientid spotifysecret lastfm].include? service
+    CONFIG[service] = key
+    File.open('config.yaml', 'w') { |f| f.write CONFIG.to_yaml }
+    m.reply "#{service} API key set to: `#{key}`!"
+  end
 
   def die(m)
-    if m.user.host == CONFIG['ownerhost']
+    if authenticate(m) && checkperm(m, m.user.name, 'die')
       m.reply 'Shutting down the bot peacefully...'
       sleep 1
       eval exit
     else
-      m.reply "You can't kill the bot! (If you are the owner of the bot, you did not configure properly! Otherwise, stop trying to KILL the bot!)"
+      m.reply "You can't kill me because you're not allowed to! Muhaha! I live on!"
     end
   end
 
   def execute(m, code)
-    if m.user.host == CONFIG['ownerhost']
+    if authenticate(m) && checkperm(m, m.user.name, 'eval')
       begin
         m.reply eval code
       rescue => e
@@ -36,7 +86,7 @@ class Owner
   end
 
   def part(m, part)
-    if m.user.host == CONFIG['ownerhost']
+    if authenticate(m) && checkperm(m, m.user.name, 'botchans')
       channels = CONFIG['channels'].split(',')
       channels -= [part]
       CONFIG['channels'] = channels.join(',')
@@ -49,7 +99,7 @@ class Owner
   end
 
   def join(m, join)
-    if m.user.host == CONFIG['ownerhost']
+    if authenticate(m) && checkperm(m, m.user.name, 'botchans')
       channels = CONFIG['channels'].split(',')
       channels += [join]
       CONFIG['channels'] = channels.join(',')

@@ -6,13 +6,11 @@ class NickServ
   match /nsverify (.+)/, method: :verify
 
   def identify(_m)
-    unless CONFIG['nickservpass'].nil? || CONFIG['nickservpass'] == ''
-      User('NickServ').send("identify #{CONFIG['nickservpass']}")
-    end
+    User('NickServ').send("identify #{CONFIG['nickservpass']}") unless CONFIG['nickservpass'].nil? || CONFIG['nickservpass'] == ''
   end
 
   def register(m, pass, email)
-    if m.user.host == CONFIG['ownerhost']
+    if authenticate(m) && checkperm(m, m.user.name, 'nickserv')
       User('NickServ').send("register #{pass} #{email}")
       CONFIG['nickservpass'] = pass.to_s
       File.open('config.yaml', 'w') { |f| f.write CONFIG.to_yaml }
@@ -23,7 +21,7 @@ class NickServ
   end
 
   def verify(m, code)
-    if m.user.host == CONFIG['ownerhost']
+    if authenticate(m) && checkperm(m, m.user.name, 'nickserv')
       User('NickServ').send("verify register #{CONFIG['nickname']} #{code}")
       m.reply 'Hey! NickServ verified!'
     else

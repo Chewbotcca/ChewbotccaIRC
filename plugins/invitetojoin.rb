@@ -13,7 +13,7 @@ class InviteToJoin
   end
 
   def leave(m)
-    if m.channel.half_ops.join(' ').split(' ').include?(m.user.nick) || m.channel.ops.join(' ').split(' ').include?(m.user.nick) || m.channel.admins.join(' ').split(' ').include?(m.user.nick) || m.channel.owners.join(' ').split(' ').include?(m.user.nick)
+    if authenticate(m) && checkperm(m, m.user.name, 'fullchannelperms') || m.channel.half_ops.join(' ').split(' ').include?(m.user.nick) || m.channel.ops.join(' ').split(' ').include?(m.user.nick) || m.channel.admins.join(' ').split(' ').include?(m.user.nick) || m.channel.owners.join(' ').split(' ').include?(m.user.nick)
       channels = CONFIG['channels'].split(',')
       channels -= [m.channel.name]
       CONFIG['channels'] = channels.join(',')

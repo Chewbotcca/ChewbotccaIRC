@@ -6,12 +6,12 @@ require './requiregems.rb'
 # Load config from file
 begin
   CONFIG = YAML.load_file('config.yaml')
-rescue
+rescue StandardError
   puts 'Config file not found, this is fatal, please configure the bot.'
   exit
 end
 
-NICKNAME = (0...8).map { (65 + rand(26)).chr }.join
+NICKNAME = (0...8).map { rand(65..90).chr }.join
 
 class Confirm
   include Cinch::Plugin

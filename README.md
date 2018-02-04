@@ -6,16 +6,16 @@ I made this bot for my IRC Network. It's ok, I guess.
 
 ## How to install
 
-Check it out on the [website](http://chewbotcca.github.io/IRC)
+Check it out on the [website](http://irc.chewbotcca.co)
 
 ## Commands
 
-There were so many commands, we moved to [commands](http://chewbotcca.github.io/IRC/commands)
+There were so many commands, we moved to [commands](http://irc.chewbotcca.co/commands)
 
 ## Credits and API usage
 
-Please go here to see [credit where credit is due](http://chewbotcca.github.io/IRC/credits).
+Please go here to see [credit where credit is due](http://irc.chewbotcca.co/credits).
 
 ## Official Public Chewbotccas
 
-I run Chewbotcca on some IRC networks. Check them out [here](http://chewbotcca.github.io/IRC/#official-public-chewbotccas)
+I run Chewbotcca on some IRC networks. Check them out [here](http://irc.chewbotcca.co/use)

@@ -6,38 +6,36 @@ class MemeDB
   def findthatmeme(m, meme)
     meme.downcase!
     case meme
-    when 'deanmeme'
-      m.reply 'http://chew.pro/Chewbotcca/memes/deanmeme.png'
     when 'rickroll'
-      m.reply 'http://chew.pro/Chewbotcca/memes/rickroll.gif'
+      m.reply 'http://chewbotcca.co/memedb/rickroll.gif'
     when 'vegans'
-      m.reply 'http://chew.pro/Chewbotcca/memes/vegans.png'
+      m.reply 'http://chewbotcca.co/memedb/vegans.png'
     when 'spotad'
-      m.reply 'http://chew.pro/Chewbotcca/memes/spotad.jpg'
+      m.reply 'http://chewbotcca.co/memedb/spotad.jpg'
     when 'petpet'
-      m.reply 'http://chew.pro/Chewbotcca/memes/petpet.jpg'
+      m.reply 'http://chewbotcca.co/memedb/petpet.jpg'
     when 'nicememe'
-      m.reply 'http://chew.pro/Chewbotcca/memes/nicememe.gif'
+      m.reply 'http://chewbotcca.co/memedb/nicememe.gif'
     when 'paycheck'
-      m.reply 'http://chew.pro/Chewbotcca/memes/paycheck.JPG'
+      m.reply 'http://chewbotcca.co/memedb/paycheck.JPG'
     when 'pokesteak'
-      m.reply 'http://chew.pro/Chewbotcca/memes/pokesteak.JPG'
+      m.reply 'http://chewbotcca.co/memedb/pokesteak.JPG'
     when 'losthope'
-      m.reply 'http://chew.pro/Chewbotcca/memes/losthope.png'
+      m.reply 'http://chewbotcca.co/memedb/losthope.png'
     when 'timetostop'
-      m.reply 'http://chew.pro/Chewbotcca/memes/timetostop.gif'
+      m.reply 'http://chewbotcca.co/memedb/timetostop.gif'
     when 'trap'
-      m.reply 'http://chew.pro/Chewbotcca/memes/trap.jpeg'
+      m.reply 'http://chewbotcca.co/memedb/trap.jpeg'
     when 'triggered'
-      m.reply 'https://chew.pro/Chewbotcca/memes/triggered.gif'
+      m.reply 'https://chewbotcca.co/memedb/triggered.gif'
     when 'noot'
-      m.reply 'https://chew.pro/Chewbotcca/memes/noot.gif'
+      m.reply 'https://chewbotcca.co/memedb/noot.gif'
     when 'iplayedmyself'
-      m.reply 'https://chew.pro/Chewbotcca/memes/iplayedmyself.png'
+      m.reply 'https://chewbotcca.co/memedb/iplayedmyself.png'
     when 'submit'
       m.reply 'You can submit a meme here: http://goo.gl/forms/BRMomYVizsY7SqOg2'
     else
-      m.reply "This meme doesn't exist! Make sure you spell the meme name right. Here is a list of the current memes: `deanmeme, rickroll, vegans, spotad, petpet, nicememe, paycheck, pokesteak, losthope, timetostop, trap, triggered, noot, iplayedmyself`"
+      m.reply "This meme doesn't exist! Make sure you spell the meme name right. Here is a list of the current memes: `rickroll, vegans, spotad, petpet, nicememe, paycheck, pokesteak, losthope, timetostop, trap, triggered, noot, iplayedmyself`"
     end
   end
 end

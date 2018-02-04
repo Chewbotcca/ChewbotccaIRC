@@ -1,5 +1,5 @@
 Metrics/LineLength:
-  Max: 356
+  Max: 500
 
 Security/Eval:
   Enabled: false
@@ -22,7 +22,7 @@ Metrics/CyclomaticComplexity:
 Style/GuardClause:
   Enabled: false
 
-Lint/RescueWithoutErrorClass:
+Style/RescueStandardError:
   Enabled: false
 
 Lint/UriEscapeUnescape:
@@ -30,6 +30,19 @@ Lint/UriEscapeUnescape:
 
 AllCops:
   TargetRubyVersion: 2.4.1
+  DisplayCopNames: true
 
 Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Style/FormatStringToken:
   Enabled: false

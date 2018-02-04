@@ -3,18 +3,25 @@ rvm:
 - 2.4.1
 script:
  - rubocop
-install: gem install rubocop -v 0.50.0
+install: gem install rubocop -v 0.52.1
 notifications:
   irc:
     channels:
       - "irc.chew.pro#Chewbotcca"
     template:
       - "Build #%{build_number}: %{message} Time Elapsed: %{elapsed_time}. %{build_url}"
+    on_success: always
+    on_failure: always
+    on_start: always
+    on_cancel: always
+    on_error: always
+    skip_join: true
+    nick: builder-kitty
   webhooks:
     urls:
-      - http://n.tkte.ch/h/5572/gzZnD80loltP7nsckuoVlGD7
-    on_success: always # default: always
-    on_failure: always # default: always
-    on_start: always   # default: never
-    on_cancel: always # default: always
-    on_error: always # default: always
+      - https://n.tkte.ch/h/5572/gzZnD80loltP7nsckuoVlGD7
+    on_success: always
+    on_failure: always
+    on_start: always
+    on_cancel: always
+    on_error: always

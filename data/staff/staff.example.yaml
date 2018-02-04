@@ -1,0 +1,47 @@
+---
+# What is the user's nickname?
+nick:
+
+# What is the user's hostname?
+host:
+
+# What is the user's username?
+user:
+
+# How should we check their permissions? Options:
+# host - Secure, as host is usually user-specific. Not recommended for web-client staff. Requires "host" configured
+# username - Not secure, as usually, the username is changeable. Requires "user" configured
+# nickname - Very unsecure, anyone with the nick has this permission access. Requires "nick" configured
+# userhost - Secure, Check their username and host, secure as usually both can't be changed. Requires "user" & "nick" configured
+# password - Coming soon!
+# all - Super secure, User has to match all 3 credentials to be authenticated. Requires all configured
+authtype:
+
+# Their permissions. Must be true or false, no quotation marks
+
+## Allow the user to run !restart and !update
+restart: false
+
+## Allow the user to bypass channel rank specific commands (!channel, !leave, etc).
+fullchannelperms: false
+
+## Allow the user to run (!part and !join chans)
+botchans: false
+
+## Allow the user to run !eval
+eval: false
+
+## Allow the user to kill the bot
+die: false
+
+## Allow the user to run !config to change the bot config options.
+changeconfig: false
+
+## Allow the user to run !permissions to change staff permissions.
+changepermissions: false
+
+## Allow the user to setup or modify NickServ
+nickserv: false
+
+## Allow the user to create an issue via hub
+issues: false
