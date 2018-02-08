@@ -32,6 +32,6 @@ class Misc
   end
 
   def yoyoyo(m)
-    m.reply "yo yo yo whats up its everyone's favorite bot here!"
+    m.reply "yo yo yo whats up its everyone's favorite bot, #{CONFIG['nickname']} here!"
   end
 end
