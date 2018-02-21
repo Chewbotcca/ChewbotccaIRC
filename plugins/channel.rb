@@ -44,7 +44,7 @@ class Channel
     hours = format('%d hours, ', hh) if hh != 0
     mins = format('%d minutes, ', mm) if mm != 0
     secs = format('%d seconds', ss) if ss != 0
-    m.reply "#{member} was last seeen #{days}#{hours}#{mins}#{secs} ago."
+    m.reply "#{member} was last seen #{days}#{hours}#{mins}#{secs} ago."
   end
 
   def channelconfig(m, option, setting)
